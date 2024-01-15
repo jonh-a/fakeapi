@@ -1,0 +1,26 @@
+{
+    "data": {
+        "name": {
+            "fakeapi_item": true,
+            "type": "name"
+        },
+        "username": {
+            "fakeapi_item": true,
+            "type": "username"
+        },
+        "password": {
+            "fakeapi_item": true,
+            "type": "password"
+        },
+        "immutable_data": {
+            "status": "OK",
+            "metadata": {
+                "test": true,
+                "mutable": {
+                    "fakeapi_item": true,
+                    "type": "number"
+                }
+            }
+        }
+    }
+}

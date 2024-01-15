@@ -1,0 +1,14 @@
+{
+    "data": {
+        "name": "Jon Smith",
+        "username": "jonsmith1",
+        "password": "asdf1234",
+        "immutable_data": {
+            "status": "OK",
+            "metadata": {
+                "test": true,
+                "mutable": 2
+            }
+        }
+    }
+}
