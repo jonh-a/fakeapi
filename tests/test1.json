@@ -17,8 +17,12 @@
             "metadata": {
                 "test": true,
                 "mutable": {
-                    "fakeapi_item": true,
-                    "type": "number"
+                    "number": {
+                        "fakeapi_item": true,
+                        "type": "number",
+                        "min": 50,
+                        "max": 60
+                    }
                 }
             }
         }

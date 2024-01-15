@@ -6,8 +6,38 @@ import string
 fake = Faker()
 
 
-def get_fake_name(params):
+def _get_email_domain():
+    return random.choice([
+        "@gmail.com",
+        "@yahoo.com",
+        "@hotmail.com"
+    ])
+
+
+def _get_username(name):
+    name = name.split(" ")
+    first = name[0]
+    last = name[1]
+    return random.choice([
+        f"{first}{last}".lower(),
+        f"{first[0]}{last}".lower(),
+        f"{first}{last[0]}".lower(),
+    ])
+
+
+def _get_fake_name():
     return fake.name()
+
+
+def get_profle():
+    name = _get_fake_name()
+    username = _get_username(name)
+    email = f"{username}{_get_email_domain()}"
+    return {
+        "name": name,
+        "mail": email,
+        "username": username,
+    }
 
 
 def get_fake_password(params):
