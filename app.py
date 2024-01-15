@@ -1,6 +1,7 @@
 from traverse_json import traverse_json
 from flask import Flask, jsonify, request
 
+
 app = Flask(__name__)
 
 

@@ -1,4 +1,9 @@
-from generate_data import get_fake_name
+from generate_data import (
+    get_fake_name, 
+    get_fake_password, 
+    get_random_number,
+)
+
 
 def traverse_json(obj):
     if isinstance(obj, dict):
@@ -17,11 +22,11 @@ def traverse_json(obj):
     return obj
 
 
-def _get_replacement(replacement_object):
+def _get_replacement(params):
     replacements = {
-        "number": 4,
-        "name": get_fake_name(replacement_object),
+        "number": get_random_number(params),
+        "name": get_fake_name(params),
         "username": "jonsmith1",
-        "password": "asdf1234"
+        "password": get_fake_password(params)
     }
-    return replacements.get(replacement_object["type"], "")
+    return replacements.get(params["type"], "")
