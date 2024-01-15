@@ -35,7 +35,7 @@ def get_profle():
     email = f"{username}{_get_email_domain()}"
     return {
         "name": name,
-        "mail": email,
+        "email": email,
         "username": username,
     }
 

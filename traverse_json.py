@@ -9,10 +9,13 @@ from generate_data import (
     get_street_address,
 )
 
-
 def traverse_json(obj):
     profile = get_profle()
+    data = recurse(obj, profile)
+    return data
 
+
+def recurse(obj, profile):
     if isinstance(obj, dict):
         for key, value in obj.items():
             if isinstance(value, dict) and "fakeapi_item" in value:
@@ -22,10 +25,10 @@ def traverse_json(obj):
                     return { "error": True, "reason": "Type not defined."}
                 obj[key] = replaced_value
             else:
-                traverse_json(value)
+                recurse(value, profile)
     elif isinstance(obj, list):
         for i in range(len(obj)):
-            traverse_json(obj[i])
+            recurse(obj[i], profile)
     return obj
 
 
@@ -33,7 +36,7 @@ def _get_replacement(params, profile):
     replacements = {
         "number": get_random_number(params),
         "name": profile["name"],
-        "email": profile["mail"],
+        "email": profile["email"],
         "username": profile["username"],
         "password": get_fake_password(params),
         "street_address": get_street_address(),
