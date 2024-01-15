@@ -49,3 +49,23 @@ def get_random_number(params):
     min = params.get("min", 0)
     max = params.get("max", 100)
     return random.randint(min, max)
+
+
+def get_city():
+    return fake.city()
+
+
+def get_country():
+    return fake.country()
+
+
+def get_country_code():
+    return fake.country_code()
+
+
+def get_street_address():
+    return fake.street_address()
+
+
+def get_full_address():
+    return fake.address()

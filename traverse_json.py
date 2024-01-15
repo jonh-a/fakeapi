@@ -2,6 +2,11 @@ from generate_data import (
     get_fake_password, 
     get_random_number,
     get_profle,
+    get_full_address,
+    get_country,
+    get_city,
+    get_country_code,
+    get_street_address,
 )
 
 
@@ -30,6 +35,12 @@ def _get_replacement(params, profile):
         "name": profile["name"],
         "email": profile["mail"],
         "username": profile["username"],
-        "password": get_fake_password(params)
+        "password": get_fake_password(params),
+        "street_address": get_street_address(),
+        "city": get_city(),
+        "country": get_country(),
+        "country_code": get_country_code(),
+        "full_address": get_full_address(),
+        
     }
     return replacements.get(params["type"], "")
