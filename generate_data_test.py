@@ -1,13 +1,4 @@
-from generate_data import (
-    get_fake_password,
-    get_random_number,
-    get_profile,
-    get_full_address,
-    get_country,
-    get_city,
-    get_country_code,
-    get_street_address,
-)
+from generate_data import *
 
 
 def test_fake_password_custom_length():
@@ -52,4 +43,25 @@ def test_city():
 
 def test_country_code():
     output = get_country_code()
+    assert isinstance(output, str)
+
+
+def test_color_name():
+    output = get_color(params={format: "name"})
+    assert isinstance(output, str)
+    assert str.isalpha(output) is True
+
+
+def test_color_hex():
+    output = get_color(params={"format": "hex"})
+    assert output.startswith("#")
+
+
+def test_color_rgb_css():
+    output = get_color(params={"format": "rgb_css"})
+    assert output.startswith("rgb(")
+
+
+def test_slug():
+    output = get_slug()
     assert isinstance(output, str)

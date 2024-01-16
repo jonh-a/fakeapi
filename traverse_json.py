@@ -1,14 +1,5 @@
-from generate_data import (
-    get_fake_password,
-    get_random_number,
-    get_profile,
-    get_full_address,
-    get_country,
-    get_city,
-    get_country_code,
-    get_street_address,
-)
 from typing import Union
+from generate_data import *
 
 
 def traverse_json(obj: Union[list, dict]) -> Union[list, dict]:
@@ -42,5 +33,7 @@ def _get_replacement(params: dict, profile: dict) -> Union[str, int]:
         "country": get_country(),
         "country_code": get_country_code(),
         "full_address": get_full_address(),
+        "color": get_color(params),
+        "slug": get_slug(),
     }
     return replacements.get(params["type"], "")

@@ -49,6 +49,18 @@ def get_random_number(params: dict) -> int:
     return random.randint(min, max)
 
 
+def get_color(params: dict) -> str:
+    format = params.get("format", "name")
+    if format == "hex":
+        return fake.safe_hex_color()
+    elif format == "rgb":
+        return fake.rgb_color()
+    elif format == "rgb_css":
+        return fake.rgb_css_color()
+    else:
+        return fake.safe_color_name()
+
+
 def get_city() -> str:
     return fake.city()
 
@@ -67,3 +79,7 @@ def get_street_address() -> str:
 
 def get_full_address() -> str:
     return fake.address()
+
+
+def get_slug() -> str:
+    return fake.slug()
