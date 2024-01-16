@@ -1,5 +1,5 @@
-from generate_data import ( 
-    get_fake_password, 
+from generate_data import (
+    get_fake_password,
     get_random_number,
     get_profle,
     get_full_address,
@@ -19,7 +19,7 @@ def traverse_json(obj):
                 if "type" in value:
                     replaced_value = _get_replacement(value, profile)
                 else:
-                    return { "error": True, "reason": "Type not defined."}
+                    return {"error": True, "reason": "Type not defined."}
                 obj[key] = replaced_value
             else:
                 traverse_json(value)

@@ -1,28 +1,26 @@
 from faker import Faker
 import random
-import string 
+import string
 
 
 fake = Faker()
 
 
 def _get_email_domain():
-    return random.choice([
-        "@gmail.com",
-        "@yahoo.com",
-        "@hotmail.com"
-    ])
+    return random.choice(["@gmail.com", "@yahoo.com", "@hotmail.com"])
 
 
 def _get_username(name):
     name = name.split(" ")
     first = name[0]
     last = name[1]
-    return random.choice([
-        f"{first}{last}".lower(),
-        f"{first[0]}{last}".lower(),
-        f"{first}{last[0]}".lower(),
-    ])
+    return random.choice(
+        [
+            f"{first}{last}".lower(),
+            f"{first[0]}{last}".lower(),
+            f"{first}{last[0]}".lower(),
+        ]
+    )
 
 
 def _get_fake_name():
@@ -42,7 +40,7 @@ def get_profle():
 
 def get_fake_password(params):
     length = params.get("length", 12)
-    return ''.join(random.choices(string.ascii_letters, k=length))
+    return "".join(random.choices(string.ascii_letters, k=length))
 
 
 def get_random_number(params):
