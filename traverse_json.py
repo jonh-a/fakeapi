@@ -1,5 +1,5 @@
 from typing import Union
-from generate_data import *
+import generate_data as gd
 
 
 def traverse_json(obj: Union[list, dict]) -> Union[list, dict]:
@@ -24,25 +24,25 @@ def _get_replacement(params: dict) -> Union[str, int]:
     type = params.get("type", "none")
 
     replacements = {
-        "boolean": get_boolean(),
-        "city": get_city(),
-        "color": get_color(params),
-        "country": get_country(),
-        "country_code": get_country_code(),
-        "date": get_date(),
-        "domain_name": get_domain_name(params),
-        "email": get_email(),
-        "full_address": get_full_address(),
-        "image_url": get_image_url(params),
-        "ipv4": get_ipv4(),
-        "name": get_name(),
-        "number": get_random_number(params),
-        "password": get_password(params),
-        "slug": get_slug(),
-        "street_address": get_street_address(),
-        "text": get_text(params),
-        "time": get_time(),
-        "username": get_username(),
+        "boolean": gd.get_boolean(),
+        "city": gd.get_city(),
+        "color": gd.get_color(params),
+        "country": gd.get_country(),
+        "country_code": gd.get_country_code(),
+        "date": gd.get_date(),
+        "domain_name": gd.get_domain_name(params),
+        "email": gd.get_email(),
+        "full_address": gd.get_full_address(),
+        "image_url": gd.get_image_url(params),
+        "ipv4": gd.get_ipv4(),
+        "name": gd.get_name(),
+        "number": gd.get_random_number(params),
+        "password": gd.get_password(params),
+        "slug": gd.get_slug(),
+        "street_address": gd.get_street_address(),
+        "text": gd.get_text(params),
+        "time": gd.get_time(),
+        "username": gd.get_username(),
         "none": "No type provided.",
         "": "Invalid type provided.",
     }

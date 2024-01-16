@@ -87,6 +87,9 @@ def get_ipv4() -> str:
 def get_image_url(params: dict) -> str:
     w = params.get("width", 640)
     h = params.get("height", 480)
+    if not isinstance(w, int) or not isinstance(h, int) or w <= 0 or h <= 0:
+        w = 640
+        h = 480
     return fake.image_url(width=w, height=h)
 
 
