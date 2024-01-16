@@ -3,6 +3,8 @@ A REST API that returns fake test data in a customizable shape.
 
 Data can be POST-ed in any shape, with `{ "fakeapi_item": true }` blocks to be replaced by the specified `type`.
 
+The bulk of this is powered by Faker.
+
 ## Examples
 
 **Flat JSON:** 
@@ -97,3 +99,13 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
 - **number** -> integer
     - **min**: integer (default 0)
     - **max**: integer (default 100)
+- **image_url** -> string
+    - **width**: integer (default 640)
+    - **height**: integer (default 480)
+- **domain_name** -> string
+    - **subdomains**: integer (default 0)
+- **slug** -> string
+- **ipv4** -> string
+- **boolean** -> boolean
+- **date** -> string
+- **time** -> string

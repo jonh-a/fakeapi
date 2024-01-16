@@ -2,7 +2,7 @@ from generate_data import *
 
 
 def test_fake_password_custom_length():
-    output = get_fake_password({"length": 30})
+    output = get_password({"length": 30})
     assert isinstance(output, str)
     assert len(output) == 30
 
@@ -13,37 +13,36 @@ def test_random_number():
     assert output >= 300 and output <= 400
 
 
-def test_profile():
-    output = get_profile()
-    assert isinstance(output, dict)
-    assert isinstance(output["name"], str)
-    assert isinstance(output["email"], str)
-    assert isinstance(output["username"], str)
+def test_username():
+    assert isinstance(get_username(), str)
+
+
+def test_email():
+    assert isinstance(get_email(), str)
+
+
+def test_name():
+    assert isinstance(get_name(), str)
 
 
 def test_full_address():
-    output = get_full_address()
-    assert isinstance(output, str)
+    assert isinstance(get_full_address(), str)
 
 
 def test_street_address():
-    output = get_street_address()
-    assert isinstance(output, str)
+    assert isinstance(get_street_address(), str)
 
 
 def test_country():
-    output = get_country()
-    assert isinstance(output, str)
+    assert isinstance(get_country(), str)
 
 
 def test_city():
-    output = get_city()
-    assert isinstance(output, str)
+    assert isinstance(get_city(), str)
 
 
 def test_country_code():
-    output = get_country_code()
-    assert isinstance(output, str)
+    assert isinstance(get_country_code(), str)
 
 
 def test_color_name():
@@ -53,15 +52,13 @@ def test_color_name():
 
 
 def test_color_hex():
-    output = get_color(params={"format": "hex"})
-    assert output.startswith("#")
+    assert get_color(params={"format": "hex"}).startswith("#")
 
 
 def test_color_rgb_css():
-    output = get_color(params={"format": "rgb_css"})
-    assert output.startswith("rgb(")
+    assert get_color(params={"format": "rgb_css"}).startswith("rgb(")
 
 
-def test_slug():
+def test_slug() -> str:
     output = get_slug()
     assert isinstance(output, str)

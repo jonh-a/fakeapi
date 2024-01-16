@@ -6,39 +6,19 @@ import string
 fake = Faker()
 
 
-def _get_email_domain() -> str:
-    return random.choice(["@gmail.com", "@yahoo.com", "@hotmail.com"])
-
-
-def _get_username(name: str) -> str:
-    name_split = name.split(" ")
-    first = name_split[0]
-    last = name_split[1]
-    return random.choice(
-        [
-            f"{first}{last}".lower(),
-            f"{first[0]}{last}".lower(),
-            f"{first}{last[0]}".lower(),
-        ]
-    )
-
-
-def _get_fake_name():
+def get_name():
     return fake.name()
 
 
-def get_profile() -> dict:
-    name = _get_fake_name()
-    username = _get_username(name)
-    email = f"{username}{_get_email_domain()}"
-    return {
-        "name": name,
-        "email": email,
-        "username": username,
-    }
+def get_username() -> str:
+    return fake.user_name()
 
 
-def get_fake_password(params: dict) -> str:
+def get_email() -> str:
+    return fake.email()
+
+
+def get_password(params: dict) -> str:
     length = params.get("length", 12)
     return "".join(random.choices(string.ascii_letters, k=length))
 
@@ -83,3 +63,32 @@ def get_full_address() -> str:
 
 def get_slug() -> str:
     return fake.slug()
+
+
+def get_ipv4() -> str:
+    return fake.ipv4_public()
+
+
+def get_image_url(params: dict) -> str:
+    w = params.get("width", 640)
+    h = params.get("height", 480)
+    return fake.image_url(width=w, height=h)
+
+
+def get_domain_name(params: dict) -> str:
+    subdomains = params.get("subdomains", 0)
+    if isinstance(subdomains, int) is False or subdomains == 0:
+        return fake.domain_name()
+    return fake.domain_name(subdomains)
+
+
+def get_boolean() -> bool:
+    return random.choice([True, False])
+
+
+def get_date() -> str:
+    return fake.date()
+
+
+def get_time() -> str:
+    return fake.time()
