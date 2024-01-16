@@ -1,16 +1,28 @@
 from generate_data import *
 
 
-def test_fake_password_custom_length():
+def test_password_custom_length():
     output = get_password({"length": 30})
     assert isinstance(output, str)
     assert len(output) == 30
+
+
+def test_password_invalid_length():
+    output = get_password({"length": "invalid"})
+    assert isinstance(output, str)
+    assert len(output) == 12
 
 
 def test_random_number():
     output = get_random_number({"min": 300, "max": 400})
     assert isinstance(output, int)
     assert output >= 300 and output <= 400
+
+
+def test_random_number_invalid_params():
+    output = get_random_number({"min": "invalid", "max": "invalid"})
+    assert isinstance(output, int)
+    assert output >= 0 and output <= 100
 
 
 def test_username():
@@ -59,6 +71,18 @@ def test_color_rgb_css():
     assert get_color(params={"format": "rgb_css"}).startswith("rgb(")
 
 
-def test_slug() -> str:
+def test_color_invalid():
+    assert isinstance(get_color(params={"format": "invalid"}), str)
+
+
+def test_slug():
     output = get_slug()
     assert isinstance(output, str)
+
+
+def test_text():
+    assert isinstance(get_text({"sentences": 1}), str)
+
+
+def test_text_invalid_sentence_count():
+    assert isinstance(get_text({"sentences": "invalid"}), str)

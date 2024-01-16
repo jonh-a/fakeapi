@@ -6,6 +6,32 @@ import string
 fake = Faker()
 
 
+def get_text(params) -> str:
+    sentences: int = params.get("sentences", 1)
+    if isinstance(sentences, int) and sentences >= 1:
+        return fake.paragraph(nb_sentences=sentences, variable_nb_sentences=False)
+    return fake.paragraph(nb_sentences=1, variable_nb_sentences=False)
+
+
+def get_random_number(params: dict) -> int:
+    min: int = params.get("min", 0)
+    max: int = params.get("max", 100)
+    if not isinstance(min, int) or not isinstance(max, int):
+        return random.randint(0, 100)
+    return random.randint(min, max)
+
+
+def get_password(params: dict) -> str:
+    length: int = params.get("length", 12)
+    if not isinstance(length, int):
+        length = 12
+    return "".join(random.choices(string.ascii_letters, k=length))
+
+
+def get_boolean() -> bool:
+    return random.choice([True, False])
+
+
 def get_name():
     return fake.name()
 
@@ -16,17 +42,6 @@ def get_username() -> str:
 
 def get_email() -> str:
     return fake.email()
-
-
-def get_password(params: dict) -> str:
-    length = params.get("length", 12)
-    return "".join(random.choices(string.ascii_letters, k=length))
-
-
-def get_random_number(params: dict) -> int:
-    min = params.get("min", 0)
-    max = params.get("max", 100)
-    return random.randint(min, max)
 
 
 def get_color(params: dict) -> str:
@@ -76,14 +91,10 @@ def get_image_url(params: dict) -> str:
 
 
 def get_domain_name(params: dict) -> str:
-    subdomains = params.get("subdomains", 0)
+    subdomains: int = params.get("subdomains", 0)
     if isinstance(subdomains, int) is False or subdomains == 0:
         return fake.domain_name()
     return fake.domain_name(subdomains)
-
-
-def get_boolean() -> bool:
-    return random.choice([True, False])
 
 
 def get_date() -> str:

@@ -1,7 +1,7 @@
 # FakeAPI
 A REST API that returns fake test data in a customizable shape.
 
-Data can be POST-ed in any shape, with `{ "fakeapi_item": true }` blocks to be replaced by the specified `type`.
+Data can be POST-ed in any shape, with `{ "fakeapi_item": true, "type": "$" }` blocks to be replaced by the specified `type`.
 
 The bulk of this is powered by Faker.
 
@@ -87,25 +87,28 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
 ```
 
 ## Types (and Parameters)
-- **name** -> string (eg "Tyler Sanders")
-- **username** -> string (eg "tsanders")
-- **password** -> string (eg "kyphIAcGZiPB")
-    - **length**: integer (default 12)
-- **street_address** -> string (eg "34003 Mcdonald Inlet Apt. 374")
-- **full_address** -> string
+- **boolean** -> boolean
+- **city** -> string
 - **country** -> string
 - **country_code** -> string
-- **city** -> string
-- **number** -> integer
-    - **min**: integer (default 0)
-    - **max**: integer (default 100)
-- **image_url** -> string
-    - **width**: integer (default 640)
-    - **height**: integer (default 480)
-- **domain_name** -> string
-    - **subdomains**: integer (default 0)
-- **slug** -> string
-- **ipv4** -> string
-- **boolean** -> boolean
 - **date** -> string
+- **domain_name** -> string
+  - **subdomains**: integer (default 0)
+- **full_address** -> string
+- **image_url** -> string
+  - **height**: integer (default 480)
+  - **width**: integer (default 640)
+- **ipv4** -> string
+- **length** -> integer (default 12)
+- **max** -> integer (default 100)
+- **min** -> integer (default 0)
+- **name** -> string (eg "Tyler Sanders")
+- **number** -> integer
+- **password** -> string (eg "kyphIAcGZiPB")
+  - **length**: integer (default 12)
+- **slug** -> string
+- **street_address** -> string (eg "34003 Mcdonald Inlet Apt. 374")
+- **text** -> string
+  - **sentences**: integer (default 1)
 - **time** -> string
+- **username** -> string (eg "tsanders")

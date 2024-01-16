@@ -59,3 +59,21 @@ def test_array_json():
     assert isinstance(output[0]["number"], int)
     assert isinstance(output[1]["name"], str)
     assert isinstance(output[1]["number"], int)
+
+
+def test_invalid_type_json():
+    input = {
+        "name": {"fakeapi_item": True, "type": "invalid"},
+    }
+    output = traverse_json(input)
+    assert isinstance(output["name"], str)
+    assert output["name"] == "Invalid type provided."
+
+
+def test_none_type_json():
+    input = {
+        "name": {"fakeapi_item": True},
+    }
+    output = traverse_json(input)
+    assert isinstance(output["name"], str)
+    assert output["name"] == "No type provided."
