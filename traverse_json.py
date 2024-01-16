@@ -8,9 +8,10 @@ from generate_data import (
     get_country_code,
     get_street_address,
 )
+from typing import Union
 
 
-def traverse_json(obj):
+def traverse_json(obj: Union[list, dict]) -> Union[list, dict]:
     profile = get_profile()
 
     if isinstance(obj, dict):
@@ -29,7 +30,7 @@ def traverse_json(obj):
     return obj
 
 
-def _get_replacement(params, profile):
+def _get_replacement(params: dict, profile: dict) -> Union[str, int]:
     replacements = {
         "number": get_random_number(params),
         "name": profile["name"],
