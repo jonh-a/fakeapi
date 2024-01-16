@@ -15,8 +15,8 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
     "number": {
         "fakeapi_item": true,
         "type": "number",
-        "min": 30,
-        "max": 300
+        "min": 30, # Optional parameter
+        "max": 300 # Optional parameter
     }
 }'  "http://127.0.0.1:5000/data"
 
@@ -83,3 +83,17 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
   }
 }
 ```
+
+## Types (and Parameters)
+- **name** -> string (eg "Tyler Sanders")
+- **username** -> string (eg "tsanders")
+- **password** -> string (eg "kyphIAcGZiPB")
+    - **length**: integer (default 12)
+- **street_address** -> string (eg "34003 Mcdonald Inlet Apt. 374")
+- **full_address** -> string
+- **country** -> string
+- **country_code** -> string
+- **city** -> string
+- **number** -> integer
+    - **min**: integer (default 0)
+    - **max**: integer (default 100)
