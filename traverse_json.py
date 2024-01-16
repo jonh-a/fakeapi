@@ -1,7 +1,7 @@
 from generate_data import (
     get_fake_password,
     get_random_number,
-    get_profle,
+    get_profile,
     get_full_address,
     get_country,
     get_city,
@@ -11,7 +11,7 @@ from generate_data import (
 
 
 def traverse_json(obj):
-    profile = get_profle()
+    profile = get_profile()
 
     if isinstance(obj, dict):
         for key, value in obj.items():

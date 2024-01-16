@@ -27,7 +27,7 @@ def _get_fake_name():
     return fake.name()
 
 
-def get_profle():
+def get_profile():
     name = _get_fake_name()
     username = _get_username(name)
     email = f"{username}{_get_email_domain()}"
