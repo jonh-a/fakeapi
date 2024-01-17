@@ -77,3 +77,20 @@ def test_none_type_json():
     output = traverse_json(input)
     assert isinstance(output["name"], str)
     assert output["name"] == "No type provided."
+
+
+def test_array_count_json():
+    input = {
+        "names": {"fakeapi_item": True, "type": "name", "count": 3},
+    }
+    output = traverse_json(input)
+    assert isinstance(output["names"], list)
+    assert len(output["names"]) == 3
+
+
+def test_non_array_count_json():
+    input = {
+        "data": {"type": "name", "count": 3},
+    }
+    output = traverse_json(input)
+    assert isinstance(output["data"], dict)

@@ -10,8 +10,11 @@ def traverse_json(obj: Union[list, dict]) -> Union[list, dict]:
     if isinstance(obj, dict):
         for key, value in obj.items():
             if isinstance(value, dict) and "fakeapi_item" in value:
-                replaced_value = _get_replacement(value)
-                obj[key] = replaced_value
+                if "count" in value and isinstance(value["count"], int):
+                    new_value = [_get_replacement(value) for _ in range(value["count"])]
+                else:
+                    new_value = _get_replacement(value)
+                obj[key] = new_value
             else:
                 traverse_json(value)
     elif isinstance(obj, list):

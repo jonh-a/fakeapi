@@ -3,11 +3,13 @@ A REST API that returns fake test data in a customizable shape.
 
 Data can be POST-ed in any shape, with `{ "fakeapi_item": true, "type": "$" }` blocks to be replaced by the specified `type`.
 
+Use `count` to create an array of the specified type.
+
 The bulk of this is powered by Faker.
 
 ## Examples
 
-**Flat JSON:** 
+### Flat JSON
 ```
 $ curl -X POST -H "Content-Type: application/json" -d '{
     "name": {
@@ -21,42 +23,43 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
         "max": 300 # Optional parameter
     }
 }'  "http://127.0.0.1:5000/data"
+```
 
-
+```json
 {
   "name": "Stephen Thomas",
   "number": 105
 }
 ```
 
-**Nested JSON:**
-```
+### Nested JSON
+```shell
 $ curl -X POST -H "Content-Type: application/json" -d '{
-    "data": {
-        "name": {
+    "nested_data": {
+        "fake_name": {
             "fakeapi_item": true,
             "type": "name"
         },
-        "username": {
+        "fake_username": {
             "fakeapi_item": true,
             "type": "username"
         },
-        "password": {
+        "fake_password": {
             "fakeapi_item": true,
             "type": "password"
         },
-        "immutable_data": {
+        "more_nested_data": {
             "status": "OK",
             "metadata": {
                 "test": true,
-                "mutable": {
-                    "number": {
+                "fake_data": {
+                    "fake_number": {
                         "fakeapi_item": true,
                         "type": "number",
                         "min": 10,
                         "max": 60
                     },
-                    "email": {
+                    "fake_email": {
                         "fakeapi_item": true,
                         "type": "email"
                     }
@@ -65,24 +68,46 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
         }
     }
 }'  "http://127.0.0.1:5000/data"
+```
 
-
+```json
 {
-  "data": {
-    "immutable_data": {
+  "nested_data": {
+    "fake_name": "Kristen Williams",
+    "fake_password": "uCfJMjPFNycu",
+    "fake_username": "amywilson",
+    "more_nested_data": {
       "metadata": {
-        "mutable": {
-          "email": "tylersanders@gmail.com",
-          "number": 57
+        "fake_data": {
+          "fake_email": "hector86@example.org",
+          "fake_number": 23
         },
         "test": true
       },
       "status": "OK"
-    },
-    "name": "Tyler Sanders",
-    "password": "kyphIAcGZiPB",
-    "username": "tylersanders"
+    }
   }
+}
+```
+
+### Creating an array with `count`
+```shell
+$ curl -X POST -H "Content-Type: application/json" -d '{
+    "names": {
+        "fakeapi_item": true,
+        "type": "name",
+        "count": 3
+    }
+}'  "http://127.0.0.1:5000/data"
+```
+
+```json
+{
+  "names": [
+    "Casey Reed",
+    "Travis Butler III",
+    "Kelly Greene"
+  ]
 }
 ```
 
