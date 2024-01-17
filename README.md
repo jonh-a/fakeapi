@@ -10,7 +10,7 @@ The bulk of this is powered by Faker.
 ## Examples
 
 ### Flat JSON
-```
+```bash
 $ curl -X POST -H "Content-Type: application/json" -d '{
     "name": {
         "fakeapi_item": true,
