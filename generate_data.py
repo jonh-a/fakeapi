@@ -28,6 +28,34 @@ def get_password(params: dict) -> str:
     return "".join(random.choices(string.ascii_letters, k=length))
 
 
+def get_image_url(params: dict) -> str:
+    w = params.get("width", 640)
+    h = params.get("height", 480)
+    if not isinstance(w, int) or not isinstance(h, int) or w <= 0 or h <= 0:
+        w = 640
+        h = 480
+    return fake.image_url(width=w, height=h)
+
+
+def get_domain_name(params: dict) -> str:
+    subdomains: int = params.get("subdomains", 0)
+    if isinstance(subdomains, int) is False or subdomains == 0:
+        return fake.domain_name()
+    return fake.domain_name(subdomains)
+
+
+def get_color(params: dict) -> str:
+    format = params.get("format", "name")
+    if format == "hex":
+        return fake.safe_hex_color()
+    elif format == "rgb":
+        return fake.rgb_color()
+    elif format == "rgb_css":
+        return fake.rgb_css_color()
+    else:
+        return fake.safe_color_name()
+
+
 def get_boolean() -> bool:
     return random.choice([True, False])
 
@@ -42,18 +70,6 @@ def get_username() -> str:
 
 def get_email() -> str:
     return fake.email()
-
-
-def get_color(params: dict) -> str:
-    format = params.get("format", "name")
-    if format == "hex":
-        return fake.safe_hex_color()
-    elif format == "rgb":
-        return fake.rgb_color()
-    elif format == "rgb_css":
-        return fake.rgb_css_color()
-    else:
-        return fake.safe_color_name()
 
 
 def get_city() -> str:
@@ -82,22 +98,6 @@ def get_slug() -> str:
 
 def get_ipv4() -> str:
     return fake.ipv4_public()
-
-
-def get_image_url(params: dict) -> str:
-    w = params.get("width", 640)
-    h = params.get("height", 480)
-    if not isinstance(w, int) or not isinstance(h, int) or w <= 0 or h <= 0:
-        w = 640
-        h = 480
-    return fake.image_url(width=w, height=h)
-
-
-def get_domain_name(params: dict) -> str:
-    subdomains: int = params.get("subdomains", 0)
-    if isinstance(subdomains, int) is False or subdomains == 0:
-        return fake.domain_name()
-    return fake.domain_name(subdomains)
 
 
 def get_date() -> str:
