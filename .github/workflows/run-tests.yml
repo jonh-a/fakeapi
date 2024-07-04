@@ -30,4 +30,4 @@ jobs:
         run: mypy .
 
       - name: test with pytest
-        run: pytest -x *_test.py
+        run: pytest
