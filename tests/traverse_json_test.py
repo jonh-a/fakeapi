@@ -1,4 +1,4 @@
-from traverse_json import traverse_json
+from fakeapi.traverse_json import traverse_json
 
 
 def test_flat_json():

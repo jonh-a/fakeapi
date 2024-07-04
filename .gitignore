@@ -3,3 +3,4 @@ include
 lib
 .pytest_cache
 .mypy_cache
+.test.sh

@@ -1,5 +1,5 @@
 from typing import Union
-import generate_data as gd
+import fakeapi.generate_data as gd
 
 
 def traverse_json(obj: Union[list, dict]) -> Union[list, dict]:
