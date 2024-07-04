@@ -1,10 +1,5 @@
-import sys
-
-print("PYTHONPATH:", sys.path)
-
 from fakeapi.generate_data import *
 
-print(get_password({"length": 30}))
 
 def test_password_custom_length():
     output = get_password({"length": 30})
