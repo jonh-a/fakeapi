@@ -114,6 +114,10 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
 ## Types (and Parameters)
 - **boolean** -> boolean
 - **city** -> string
+- **color** -> string
+  - **format**: string (eg name, hex, rgb, rgb_css | default name)
+- **coordinates** -> tuple(decimal, decimal)
+  - **on_land**: boolean (default false)
 - **country** -> string
 - **country_code** -> string
 - **date** -> string
@@ -124,14 +128,15 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
   - **height**: integer (default 480)
   - **width**: integer (default 640)
 - **ipv4** -> string
-- **length** -> integer (default 12)
-- **max** -> integer (default 100)
-- **min** -> integer (default 0)
+- **isbn** -> string
+  - **format**: string (isbn10, isbn13)
 - **name** -> string (eg "Tyler Sanders")
 - **number** -> integer
+  - **max** -> integer (default 100)
+  - **min** -> integer (default 0)
 - **password** -> string (eg "kyphIAcGZiPB")
   - **length**: integer (default 12)
-- **slug** -> string
+- **slug** -> żtring
 - **street_address** -> string (eg "34003 Mcdonald Inlet Apt. 374")
 - **text** -> string
   - **sentences**: integer (default 1)
