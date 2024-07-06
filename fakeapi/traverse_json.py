@@ -48,6 +48,7 @@ def _get_replacement(params: dict) -> Union[str, int]:
         "text": gd.get_text(params),
         "time": gd.get_time(),
         "username": gd.get_username(),
+        "uuid": gd.get_uuid(),
         "none": "No type provided.",
         "": "Invalid type provided.",
     }

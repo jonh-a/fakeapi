@@ -132,3 +132,11 @@ def get_date() -> str:
 
 def get_time() -> str:
     return fake.time()
+
+
+def get_uuid() -> str:
+    return fake.uuid4()
+
+
+def get_url() -> str:
+    return fake.url()

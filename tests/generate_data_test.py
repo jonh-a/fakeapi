@@ -105,3 +105,11 @@ def test_isbn():
     assert isinstance(get_isbn({"format": "isbn10"}), str)
     assert isinstance(get_isbn({"format": "isbn13"}), str)
     assert isinstance(get_isbn({}), str)
+
+
+def test_uuid():
+    assert isinstance(get_uuid(), str)
+
+
+def test_url():
+    assert isinstance(get_url(), str)

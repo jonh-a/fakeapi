@@ -10,7 +10,7 @@ The bulk of this is powered by Faker.
 ## Examples
 
 ### Flat JSON
-```bash
+```shell
 $ curl -X POST -H "Content-Type: application/json" -d '{
     "name": {
         "fakeapi_item": true,
@@ -22,7 +22,7 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
         "min": 30, # Optional parameter
         "max": 300 # Optional parameter
     }
-}'  "http://127.0.0.1:5000/data"
+}'  "https://fake-api.usingthe.computer/data"
 ```
 
 ```json
@@ -67,7 +67,7 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
             }
         }
     }
-}'  "http://127.0.0.1:5000/data"
+}'  "https://fake-api.usingthe.computer/data"
 ```
 
 ```json
@@ -98,7 +98,7 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
         "type": "name",
         "count": 3
     }
-}'  "http://127.0.0.1:5000/data"
+}'  "https://fake-api.usingthe.computer/data"
 ```
 
 ```json
@@ -143,4 +143,6 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
 - **text** -> string
   - **sentences**: integer (default 1)
 - **time** -> string
+- **url** -> string
 - **username** -> string (eg "tsanders")
+- **uuid** -> string
