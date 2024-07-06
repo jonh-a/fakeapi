@@ -86,3 +86,22 @@ def test_text():
 
 def test_text_invalid_sentence_count():
     assert isinstance(get_text({"sentences": "invalid"}), str)
+
+
+def test_hash():
+    assert isinstance(get_hash({"format": "md5"}), str)
+    assert isinstance(get_hash({"format": "sha1"}), str)
+    assert isinstance(get_hash({"format": "sha256"}), str)
+    assert isinstance(get_hash({}), str)
+
+
+def test_coordinates():
+    assert isinstance(get_coordinates({}), tuple)
+    assert len(get_coordinates({})) == 2
+    assert isinstance(get_coordinates({"on_land": True}), tuple)
+
+
+def test_isbn():
+    assert isinstance(get_isbn({"format": "isbn10"}), str)
+    assert isinstance(get_isbn({"format": "isbn13"}), str)
+    assert isinstance(get_isbn({}), str)

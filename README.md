@@ -124,6 +124,8 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
 - **domain_name** -> string
   - **subdomains**: integer (default 0)
 - **full_address** -> string
+- **hash** -> string
+  - **format**: string (sha1, sha256, md5 | default sha256)
 - **image_url** -> string
   - **height**: integer (default 480)
   - **width**: integer (default 640)
@@ -136,7 +138,7 @@ $ curl -X POST -H "Content-Type: application/json" -d '{
   - **min** -> integer (default 0)
 - **password** -> string (eg "kyphIAcGZiPB")
   - **length**: integer (default 12)
-- **slug** -> żtring
+- **slug** -> string
 - **street_address** -> string (eg "34003 Mcdonald Inlet Apt. 374")
 - **text** -> string
   - **sentences**: integer (default 1)

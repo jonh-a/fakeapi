@@ -36,6 +36,7 @@ def _get_replacement(params: dict) -> Union[str, int]:
         "domain_name": gd.get_domain_name(params),
         "email": gd.get_email(),
         "full_address": gd.get_full_address(),
+        "hash": gd.get_hash(params),
         "image_url": gd.get_image_url(params),
         "ipv4": gd.get_ipv4(),
         "isbn": gd.get_isbn(params),

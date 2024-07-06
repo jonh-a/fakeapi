@@ -1,5 +1,5 @@
 from faker import Faker
-from numbers import Decimal
+from decimal import Decimal
 from typing import Tuple
 import random
 import string
@@ -56,7 +56,7 @@ def get_color(params: dict) -> str:
         return fake.rgb_css_color()
     else:
         return fake.safe_color_name()
-    
+
 
 def get_coordinates(params: dict) -> Tuple[Decimal, Decimal]:
     on_land = params.get("on_land", True)
@@ -71,6 +71,15 @@ def get_isbn(params: dict) -> str:
     if format == "isbn10":
         return fake.isbn10()
     return fake.isbn13()
+
+
+def get_hash(params: dict) -> str:
+    format = params.get("format", "sha256")
+    if format == "sha1":
+        return fake.sha1()
+    if format == "md5":
+        return fake.md5()
+    return fake.sha256()
 
 
 def get_boolean() -> bool:
@@ -123,5 +132,3 @@ def get_date() -> str:
 
 def get_time() -> str:
     return fake.time()
-
-
